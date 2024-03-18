@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-mkdvq!o)(lk4$_gc_i#iksu&g10ax48#)qwt^(eh7dx+acq5j^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -69,7 +69,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'blogapp.wsgi.application'
+WSGI_APPLICATION = 'blogapp.wsgi.app'
 
 
 # Database
