@@ -125,7 +125,7 @@ STATIC_URL = 'public/'
 # MEDIA_URL = "images/"
 STATICFILES_DIRS = [
     BASE_DIR / "static",
-    BASE_DIR / "images"
+    BASE_DIR / "images",
 ]
 STATIC_ROOT = BASE_DIR/'staticfiles'
 # Default primary key field type
