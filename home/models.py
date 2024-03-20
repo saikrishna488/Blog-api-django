@@ -1,6 +1,7 @@
 from django.db import models
 import os
 from django.conf import settings
+import shutil
 
 class User(models.Model):
     email = models.CharField(max_length = 50)
@@ -12,26 +13,10 @@ class User(models.Model):
     
 def userImagePath(instance,imgName):
 
-    img_extensions = ['jpeg','png','jpg']
-
-    for img in img_extensions:
-
-        if img in imgName:
-
-            file_path = os.path.join(settings.BASE_DIR, f'images/{instance.author}/logo.{img}')
-
-            if os.path.exists(file_path):
-
-                os.remove(file_path)
-                print("file deleted")
-
-            else:
-
-                print("not exists")
-
-            return f"images/{instance.author}/logo.{img}"
-        
-    return None
+    filepath = os.path.join(settings.BASE_DIR,f'images/{instance.author}')
+    if os.path.exists(filepath):
+        shutil.rmtree(filepath)
+    return f"images/{instance.author}/{imgName}"
 
 
 class Post(models.Model):
