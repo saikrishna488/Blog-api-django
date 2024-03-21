@@ -14,6 +14,9 @@ class User(models.Model):
 def userImagePath(instance,imgName):
 
     filepath = os.path.join(settings.BASE_DIR, f'images/{instance.author}')
+    if os.path.exists(filepath)
+        os.chmod(filepath,0o777)
+        os.remove(filepath)
     
     return f"images/{instance.author}/{imgName}"
 
