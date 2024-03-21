@@ -16,9 +16,9 @@ def userImagePath(instance,imgName):
     filepath = os.path.join(settings.BASE_DIR, f'images/{instance.author}')
     try:
         if os.path.exists(filepath):
-            os.chmod(filepath,0o700)
-            # shutil.rmtree(filepath)
-            os.remove(filepath)
+            os.chmod(filepath,0o777)
+            shutil.rmtree(filepath)
+            # os.remove(filepath)
             print(f"Directory '{filepath}' removed successfully.")
         else:
             print(f"Directory '{filepath}' does not exist.")
