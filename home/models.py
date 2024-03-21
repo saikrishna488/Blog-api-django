@@ -14,16 +14,7 @@ class User(models.Model):
 def userImagePath(instance,imgName):
 
     filepath = os.path.join(settings.BASE_DIR, f'images/{instance.author}')
-    try:
-        if os.path.exists(filepath):
-            os.chmod(filepath,0o777)
-            shutil.rmtree(filepath)
-            # os.remove(filepath)
-            print(f"Directory '{filepath}' removed successfully.")
-        else:
-            print(f"Directory '{filepath}' does not exist.")
-    except PermissionError as e:
-        print(f"Permission denied error: {e}")
+    
     return f"images/{instance.author}/{imgName}"
 
 
