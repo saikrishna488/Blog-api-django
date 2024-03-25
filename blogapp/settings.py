@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-mkdvq!o)(lk4$_gc_i#iksu&g10ax48#)qwt^(eh7dx+acq5j^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True 
 
-ALLOWED_HOSTS = ['.vercel.app', '.now.sh','127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -132,7 +132,7 @@ STATICFILES_DIRS = [
     BASE_DIR / "images",
 ]
 STATIC_ROOT = BASE_DIR/'staticfiles'
-MEDIA_ROOT = BASE_DIR 
+MEDIA_ROOT = BASE_DIR / "images"
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
