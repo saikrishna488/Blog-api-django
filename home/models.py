@@ -1,7 +1,7 @@
 from django.db import models
 import os
 from django.conf import settings
-import shutil
+from django.core.files.storage import default_storage
 
 class User(models.Model):
     email = models.CharField(max_length = 50)
@@ -13,13 +13,9 @@ class User(models.Model):
     
 def userImagePath(instance,imgName):
 
-    filepath = os.path.join(settings.BASE_DIR, f'images/{instance.author}')
-    # if os.path.exists(filepath):
-    #     os.chmod(filepath,0o777)
-    #     os.remove(filepath)
-    print(filepath + f"/{imgName}")
-    
-    return filepath + f"/{imgName}"
+    filepath = f'images/{instance.author}/{imgName}'
+    return filepath
+
 
 
 class Post(models.Model):
